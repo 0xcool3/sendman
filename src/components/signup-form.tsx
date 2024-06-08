@@ -1,16 +1,17 @@
 "use client";
 
-import type {InputProps} from "@nextui-org/react";
+import type { InputProps } from "@nextui-org/react";
 
 import React from "react";
-import {Input, Checkbox, Link} from "@nextui-org/react";
+import { Input, Checkbox, Link } from "@nextui-org/react";
 
-import {cn} from "@/utils/cn";
+import { cn } from "@/utils/cn";
+import Editor from "@monaco-editor/react";
 
 export type SignUpFormProps = React.HTMLAttributes<HTMLFormElement>;
 
 const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
-  ({className, ...props}, ref) => {
+  ({ className, ...props }, ref) => {
     const inputProps: Pick<InputProps, "labelPlacement" | "classNames"> = {
       labelPlacement: "outside",
       classNames: {
@@ -30,10 +31,14 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             Sign In
           </Link>
         </div>
+
         <form
           ref={ref}
           {...props}
-          className={cn("flex grid grid-cols-12 flex-col gap-4 py-8", className)}
+          className={cn(
+            "flex grid grid-cols-12 flex-col gap-4 py-8",
+            className
+          )}
         >
           <Input
             className="col-span-12  md:col-span-6"
@@ -105,9 +110,16 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             .
           </Checkbox>
         </form>
+        <Editor
+          theme="vs-dark"
+          className="rounded-lg "
+          height={"20vh"}
+          defaultLanguage="javascript"
+          defaultValue="// some comment"
+        />
       </>
     );
-  },
+  }
 );
 
 SignUpForm.displayName = "SignUpForm";
