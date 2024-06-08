@@ -43,16 +43,7 @@ const MultiStepSidebar = React.forwardRef<HTMLDivElement, MultiStepSidebarProps>
         {...props}
       >
         <div className="flex hidden h-full w-[344px] flex-shrink-0 flex-col items-start gap-y-8 rounded-large bg-gradient-to-b from-default-100 via-danger-100 to-secondary-100 px-8 py-6 shadow-small lg:flex">
-          <Button
-            className="bg-default-50 text-small font-medium text-default-500 shadow-lg"
-            isDisabled={currentPage === 0}
-            radius="full"
-            variant="flat"
-            onPress={onBack}
-          >
-            <Icon icon="solar:arrow-left-outline" width={18} />
-            Back
-          </Button>
+       
           <div>
             <div className="text-xl font-medium leading-7 text-default-foreground">
               Sendman
@@ -86,6 +77,16 @@ const MultiStepSidebar = React.forwardRef<HTMLDivElement, MultiStepSidebarProps>
             ]}
             onStepChange={onChangePage}
           />
+             <Button
+            className="bg-default-50 text-small font-medium text-default-500 shadow-lg"
+            isDisabled={currentPage === 0}
+            radius="full"
+            variant="flat"
+            onPress={onBack}
+          >
+            <Icon icon="solar:arrow-left-outline" width={18} />
+            Back
+          </Button>
           <SupportCard className="w-full backdrop-blur-lg lg:bg-white/40 lg:shadow-none dark:lg:bg-white/20" />
         </div>
         <div className="flex h-full w-full flex-col items-center gap-4 md:p-4">

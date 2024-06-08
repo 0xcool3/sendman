@@ -4,7 +4,7 @@ import App from "@/components/App";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-start p-4">
+    <div className="flex items-center justify-start p-2 sm:p-4">
       <App />
     </div>
     // <main className="flex min-h-screen flex-col items-center justify-between p-24">
