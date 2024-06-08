@@ -1,21 +1,21 @@
 "use client";
 
 import React from "react";
-import {AvatarGroup, Avatar, Button} from "@nextui-org/react";
-import {Icon} from "@iconify/react";
+import { AvatarGroup, Avatar, Button } from "@nextui-org/react";
+import { Icon } from "@iconify/react";
 
-import {cn} from "@/utils/cn";
+import { cn } from "@/utils/cn";
 
 export type SupportCardProps = React.HTMLAttributes<HTMLDivElement>;
 
 const SupportCard = React.forwardRef<HTMLDivElement, SupportCardProps>(
-  ({className, ...props}, ref) => (
+  ({ className, ...props }, ref) => (
     <div
       {...props}
       ref={ref}
       className={cn(
         "align-center my-2 flex shrink-0 items-center justify-center gap-3 self-stretch rounded-large bg-content1 px-3 py-3 shadow-small",
-        className,
+        className
       )}
     >
       <AvatarGroup isBordered size="sm">
@@ -43,6 +43,9 @@ const SupportCard = React.forwardRef<HTMLDivElement, SupportCardProps>(
       </div>
       <Button
         isIconOnly
+        onClick={() => {
+          open("https://discord.com/invite/tuguJtymUG");
+        }}
         className="align-center flex h-[32px] w-[31px] justify-center rounded-[12px] bg-default-100 dark:bg-[#27272A]/[.4]"
         size="sm"
         variant="flat"
@@ -54,7 +57,7 @@ const SupportCard = React.forwardRef<HTMLDivElement, SupportCardProps>(
         />
       </Button>
     </div>
-  ),
+  )
 );
 
 SupportCard.displayName = "SupportCard";
