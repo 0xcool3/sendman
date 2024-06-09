@@ -25,7 +25,7 @@ const ChooseAddressForm = React.forwardRef<HTMLFormElement, ChooseAddressFormPro
       <>
         <div className="text-3xl font-bold leading-9 text-default-foreground">Send</div>
         <div className="py-4 text-base leading-5 text-default-500">
-          Selecting the ideal location for your business correspondence
+          Transfer assets
         </div>
         <form
           ref={ref}

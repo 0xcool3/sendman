@@ -35,7 +35,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
           Review
         </div>
         <div className="py-4 text-default-500">
-          Please provide the information for your incorporated company
+          Check & Approve
         </div>
         <form
           ref={ref}

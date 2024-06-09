@@ -42,14 +42,14 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
 
     return (
       <>
-        <div className="text-3xl font-bold leading-9 text-default-foreground">
+        <div className="text-xl md:text-3xl font-bold leading-9 text-default-foreground sm2:hidden block">
           Welcome to Sendman 👋
         </div>
         <div className="py-2 text-medium text-default-500">
-          Already have an account?
-          <Link className="ml-2 text-secondary underline" href="#" size="md">
+          Select the assets to send and fill in the recipient's address.
+          {/* <Link className="ml-2 text-secondary underline" href="#" size="md">
             Sign In
-          </Link>
+          </Link> */}
         </div>
 
         <form
@@ -60,17 +60,18 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             className
           )}
         >
-          <div className="col-span-12">
+          {/* <div className="col-span-12">
             <ConnectButton />
-          </div>
+          </div> */}
 
           <div className="col-span-12 flex">
             <ButtonGroup variant="faded">
               <Button
+                onPress={onOpen}
                 color="primary"
                 variant="flat"
                 startContent={<UserIcon />}
-                endContent={         <ChevronDownIcon />}
+                endContent={<ChevronDownIcon />}
               >
                 Select Token
               </Button>
@@ -120,7 +121,7 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
               )}
             </ModalContent>
           </Modal>
-          <Input
+          {/* <Input
             className="col-span-12  md:col-span-6"
             label="First Name"
             name="first-name"
@@ -188,12 +189,12 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
               Privacy Policy
             </Link>
             .
-          </Checkbox>
+          </Checkbox> */}
         </form>
         <Editor
           theme="vs-dark"
           className="rounded-lg "
-          height={"20vh"}
+          height={"40vh"}
           defaultLanguage="javascript"
           defaultValue="// some comment"
         />

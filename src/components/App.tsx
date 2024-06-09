@@ -103,13 +103,14 @@ export default function Component() {
       onChangePage={onChangePage}
       onNext={onNext}
     >
-      <div className="relative flex h-fit w-full flex-col pt-6 text-center lg:h-full lg:justify-center lg:pt-0">
+      <div className="relative flex h-fit w-full flex-col pt-6 text-center lg:h-full lg:justify-start lg:pt-0">
         {content}
         <MultistepNavigationButtons
           backButtonProps={{isDisabled: page === 0}}
           className="hidden justify-start lg:flex"
           nextButtonProps={{
-            children: page === 0 ? "Sign Up for Free" : page === 3 ? "Go to Payment" : "Continue",
+            children: page === 0 ? "Continue" : page === 3 ? "Finished" : "Continue",
+            isDisabled: page === 3
           }}
           onBack={onBack}
           onNext={onNext}
