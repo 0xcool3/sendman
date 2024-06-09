@@ -64,14 +64,27 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             <ConnectButton />
           </div>
 
-          <ButtonGroup fullWidth className="col-span-12" variant="faded">
-            <Button color="primary" variant="flat" startContent={<UserIcon />}>
-              Select 0x913Aa323127A2E1E5604bD84D3f3d8B929215f52
-            </Button>
-            <Button isIconOnly color="primary" variant="flat" onPress={onOpen}>
-              <ChevronDownIcon />
-            </Button>
-          </ButtonGroup>
+          <div className="col-span-12 flex">
+            <ButtonGroup variant="faded">
+              <Button
+                color="primary"
+                variant="flat"
+                startContent={<UserIcon />}
+                endContent={         <ChevronDownIcon />}
+              >
+                Select Token
+              </Button>
+              {/* <Button
+                isIconOnly
+                color="primary"
+                variant="flat"
+                onPress={onOpen}
+              >
+                <ChevronDownIcon />
+              </Button> */}
+            </ButtonGroup>
+          </div>
+
           <Modal
             isOpen={isOpen}
             placement={modalPlacement}
