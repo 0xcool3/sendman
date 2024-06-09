@@ -3,10 +3,26 @@
 import type { InputProps } from "@nextui-org/react";
 
 import React from "react";
-import { Input, Checkbox, Link } from "@nextui-org/react";
+import {
+  Input,
+  Checkbox,
+  Link,
+  ButtonGroup,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+  RadioGroup,
+  Radio,
+} from "@nextui-org/react";
 
 import { cn } from "@/utils/cn";
 import Editor from "@monaco-editor/react";
+import { ChevronDownIcon } from "./ChevronDownIcon";
+import { UserIcon } from "./UserIcon";
 
 export type SignUpFormProps = React.HTMLAttributes<HTMLFormElement>;
 
@@ -19,6 +35,8 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
           "text-small font-medium text-default-700 group-data-[filled-within=true]:text-default-700",
       },
     };
+    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const [modalPlacement, setModalPlacement] = React.useState("auto");
 
     return (
       <>
@@ -40,6 +58,49 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             className
           )}
         >
+          <ButtonGroup fullWidth className="col-span-12" variant="faded">
+            <Button color="primary" variant="flat" startContent={<UserIcon />}>
+              Select 0x913Aa323127A2E1E5604bD84D3f3d8B929215f52
+            </Button>
+            <Button isIconOnly color="primary" variant="flat" onPress={onOpen}>
+              <ChevronDownIcon />
+            </Button>
+          </ButtonGroup>
+          <Modal
+            isOpen={isOpen}
+            placement={modalPlacement}
+            onOpenChange={onOpenChange}
+          >
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <ModalHeader className="flex flex-col gap-1">
+                    Modal Title
+                  </ModalHeader>
+                  <ModalBody>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nullam pulvinar risus non risus hendrerit venenatis.
+                      Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nullam pulvinar risus non risus hendrerit venenatis.
+                      Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                    </p>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="danger" variant="light" onPress={onClose}>
+                      Close
+                    </Button>
+                    <Button color="primary" onPress={onClose}>
+                      Action
+                    </Button>
+                  </ModalFooter>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
           <Input
             className="col-span-12  md:col-span-6"
             label="First Name"

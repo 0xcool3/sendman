@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import {Button} from "@nextui-org/react";
-import {Icon} from "@iconify/react";
+import { Button } from "@nextui-org/react";
+import { Icon } from "@iconify/react";
 
-import {cn} from "@/utils/cn";
+import { cn } from "@/utils/cn";
 import SupportCard from "./support-card";
 import VerticalSteps from "./vertical-steps";
 
@@ -31,11 +31,25 @@ const stepperClasses = cn(
   "dark:[--active-border-color:rgba(255,255,255,0.5)]",
   "dark:[--inactive-border-color:rgba(255,255,255,0.1)]",
   "dark:[--inactive-bar-color:rgba(255,255,255,0.1)]",
-  "dark:[--inactive-color:rgba(255,255,255,0.2)]",
+  "dark:[--inactive-color:rgba(255,255,255,0.2)]"
 );
 
-const MultiStepSidebar = React.forwardRef<HTMLDivElement, MultiStepSidebarProps>(
-  ({children, className, currentPage, onBack, onNext, onChangePage, ...props}, ref) => {
+const MultiStepSidebar = React.forwardRef<
+  HTMLDivElement,
+  MultiStepSidebarProps
+>(
+  (
+    {
+      children,
+      className,
+      currentPage,
+      onBack,
+      onNext,
+      onChangePage,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
@@ -43,13 +57,14 @@ const MultiStepSidebar = React.forwardRef<HTMLDivElement, MultiStepSidebarProps>
         {...props}
       >
         <div className="flex hidden h-full w-[344px] flex-shrink-0 flex-col items-start gap-y-8 rounded-large bg-gradient-to-b from-default-100 via-danger-100 to-secondary-100 px-8 py-6 shadow-small lg:flex">
-       
           <div>
             <div className="text-xl font-medium leading-7 text-default-foreground">
               Sendman
             </div>
             <div className="mt-1 text-base font-medium leading-6 text-default-500">
-              This is a bulk asset transfer tool compatible with Ethereum, Ethereum L2, BSC, Polygon, and Gnosis, supporting ETH, ERC20, ERC721, and ERC1155 assets.
+              This is a bulk asset transfer tool compatible with Ethereum,
+              Ethereum L2, BSC, Polygon, and Gnosis, supporting ETH, ERC20,
+              ERC721, and ERC1155 assets.
             </div>
           </div>
           {/* Desktop Steps */}
@@ -77,7 +92,7 @@ const MultiStepSidebar = React.forwardRef<HTMLDivElement, MultiStepSidebarProps>
             ]}
             onStepChange={onChangePage}
           />
-             <Button
+          <Button
             className="bg-default-50 text-small font-medium text-default-500 shadow-lg"
             isDisabled={currentPage === 0}
             radius="full"
@@ -90,6 +105,7 @@ const MultiStepSidebar = React.forwardRef<HTMLDivElement, MultiStepSidebarProps>
           <SupportCard className="w-full backdrop-blur-lg lg:bg-white/40 lg:shadow-none dark:lg:bg-white/20" />
         </div>
         <div className="flex h-full w-full flex-col items-center gap-4 md:p-4">
+        
           <div className="sticky top-0 z-10 w-full rounded-large bg-gradient-to-r from-default-100 via-danger-100 to-secondary-100 py-4 shadow-small md:max-w-xl lg:hidden">
             <div className="flex justify-center">
               {/* Mobile Steps */}
@@ -117,15 +133,15 @@ const MultiStepSidebar = React.forwardRef<HTMLDivElement, MultiStepSidebarProps>
           <div className="h-full w-full p-4 sm:max-w-lg md:max-w-2xl">
             {children}
             <MultistepNavigationButtons
-              backButtonProps={{isDisabled: currentPage === 0}}
+              backButtonProps={{ isDisabled: currentPage === 0 }}
               className="lg:hidden"
               nextButtonProps={{
                 children:
                   currentPage === 0
                     ? "Sign Up for Free"
                     : currentPage === 3
-                      ? "Go to Payment"
-                      : "Continue",
+                    ? "Go to Payment"
+                    : "Continue",
               }}
               onBack={onBack}
               onNext={onNext}
@@ -135,7 +151,7 @@ const MultiStepSidebar = React.forwardRef<HTMLDivElement, MultiStepSidebarProps>
         </div>
       </div>
     );
-  },
+  }
 );
 
 MultiStepSidebar.displayName = "MultiStepSidebar";
