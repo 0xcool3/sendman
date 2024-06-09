@@ -23,6 +23,8 @@ import { cn } from "@/utils/cn";
 import Editor from "@monaco-editor/react";
 import { ChevronDownIcon } from "./ChevronDownIcon";
 import { UserIcon } from "./UserIcon";
+// import { ConnectButton } from "./ConnectButton";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export type SignUpFormProps = React.HTMLAttributes<HTMLFormElement>;
 
@@ -58,6 +60,10 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
             className
           )}
         >
+          <div className="col-span-12">
+            <ConnectButton />
+          </div>
+
           <ButtonGroup fullWidth className="col-span-12" variant="faded">
             <Button color="primary" variant="flat" startContent={<UserIcon />}>
               Select 0x913Aa323127A2E1E5604bD84D3f3d8B929215f52

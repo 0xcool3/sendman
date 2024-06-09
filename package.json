@@ -11,6 +11,8 @@
   "dependencies": {
     "@monaco-editor/react": "^4.6.0",
     "@nextui-org/react": "^2.4.1",
+    "@rainbow-me/rainbowkit": "^2.1.2",
+    "@tanstack/react-query": "^5.40.1",
     "clsx": "2.1.0",
     "framer-motion": "^11.2.10",
     "lodash": "^4.17.21",
@@ -18,7 +20,9 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.3.0",
-    "usehooks-ts": "^3.1.0"
+    "usehooks-ts": "^3.1.0",
+    "viem": "2.x",
+    "wagmi": "^2.9.10"
   },
   "devDependencies": {
     "@iconify/react": "^5.0.1",
