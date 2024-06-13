@@ -7,6 +7,7 @@ import {
   Input,
   Checkbox,
   Link,
+  Spacer,
   ButtonGroup,
   Modal,
   ModalContent,
@@ -27,6 +28,7 @@ import { UserIcon } from "./UserIcon";
 // import { ConnectButton } from "./ConnectButton";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useTheme } from "next-themes";
+import ListTable from "./ListTable";
 
 export type SignUpFormProps = React.HTMLAttributes<HTMLFormElement>;
 
@@ -231,6 +233,8 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
           // className="rounded-lg "
           className="my-custom-editor"
         />
+        <Spacer y={8} />
+        <ListTable />
       </>
     );
   }

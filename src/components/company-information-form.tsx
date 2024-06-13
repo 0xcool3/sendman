@@ -1,51 +1,50 @@
 "use client";
 
-import type {InputProps, SelectProps} from "@nextui-org/react";
+import type { InputProps, SelectProps } from "@nextui-org/react";
 
 import React from "react";
-import {Input, Select, SelectItem} from "@nextui-org/react";
+import { Input, Select, SelectItem } from "@nextui-org/react";
 
-import {cn} from "@/utils/cn";
+import { cn } from "@/utils/cn";
 import companyTypes from "./company-types";
 import states from "./states";
 import companyIndustries from "./company-industries";
 import Stats from "./Stats";
-import ListTable from "./ListTable"
+import ListTable from "./ListTable";
 
 export type CompanyInformationFormProps = React.HTMLAttributes<HTMLFormElement>;
 
-const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformationFormProps>(
-  ({className, ...props}, ref) => {
-    const inputProps: Pick<InputProps, "labelPlacement" | "classNames"> = {
-      labelPlacement: "outside",
-      classNames: {
-        label:
-          "text-small font-medium text-default-700 group-data-[filled-within=true]:text-default-700",
-      },
-    };
+const CompanyInformationForm = React.forwardRef<
+  HTMLFormElement,
+  CompanyInformationFormProps
+>(({ className, ...props }, ref) => {
+  const inputProps: Pick<InputProps, "labelPlacement" | "classNames"> = {
+    labelPlacement: "outside",
+    classNames: {
+      label:
+        "text-small font-medium text-default-700 group-data-[filled-within=true]:text-default-700",
+    },
+  };
 
-    const selectProps: Pick<SelectProps, "labelPlacement" | "classNames"> = {
-      labelPlacement: "outside",
-      classNames: {
-        label: "text-small font-medium text-default-700 group-data-[filled=true]:text-default-700",
-      },
-    };
+  const selectProps: Pick<SelectProps, "labelPlacement" | "classNames"> = {
+    labelPlacement: "outside",
+    classNames: {
+      label:
+        "text-small font-medium text-default-700 group-data-[filled=true]:text-default-700",
+    },
+  };
 
-    return (
-      <>
-        <div className="text-3xl font-bold leading-9 text-default-foreground">
-          Review
-        </div>
-        <div className="py-4 text-default-500">
-          Check & Approve
-        </div>
+  return (
+    <>
+      <div className="text-3xl font-bold leading-9 text-default-foreground">
+        Review
+      </div>
+      <div className="py-4 text-default-500">Check & Approve</div>
 
-        <Stats/>
-        <div className="my-4">
-        <ListTable/>
-        </div>
+      <Stats />
+      <div className="my-4"></div>
 
-        {/* <form
+      {/* <form
           ref={ref}
           className={cn("flex grid grid-cols-12 flex-col gap-4 py-8", className)}
           {...props}
@@ -164,10 +163,9 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
             {...inputProps}
           />
         </form> */}
-      </>
-    );
-  },
-);
+    </>
+  );
+});
 
 CompanyInformationForm.displayName = "CompanyInformationForm";
 
