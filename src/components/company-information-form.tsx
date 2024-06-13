@@ -9,6 +9,8 @@ import {cn} from "@/utils/cn";
 import companyTypes from "./company-types";
 import states from "./states";
 import companyIndustries from "./company-industries";
+import Stats from "./Stats";
+import ListTable from "./ListTable"
 
 export type CompanyInformationFormProps = React.HTMLAttributes<HTMLFormElement>;
 
@@ -37,7 +39,13 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
         <div className="py-4 text-default-500">
           Check & Approve
         </div>
-        <form
+
+        <Stats/>
+        <div className="my-4">
+        <ListTable/>
+        </div>
+
+        {/* <form
           ref={ref}
           className={cn("flex grid grid-cols-12 flex-col gap-4 py-8", className)}
           {...props}
@@ -155,7 +163,7 @@ const CompanyInformationForm = React.forwardRef<HTMLFormElement, CompanyInformat
             placeholder="Confirm your company EIN here"
             {...inputProps}
           />
-        </form>
+        </form> */}
       </>
     );
   },
