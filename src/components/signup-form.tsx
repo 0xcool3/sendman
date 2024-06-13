@@ -2,7 +2,7 @@
 
 import type { InputProps } from "@nextui-org/react";
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Input,
   Checkbox,
@@ -20,11 +20,13 @@ import {
 } from "@nextui-org/react";
 
 import { cn } from "@/utils/cn";
-import Editor from "@monaco-editor/react";
+import Editor, { useMonaco } from "@monaco-editor/react";
+import iplastic from "@/constants/iplastic";
 import { ChevronDownIcon } from "./ChevronDownIcon";
 import { UserIcon } from "./UserIcon";
 // import { ConnectButton } from "./ConnectButton";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useTheme } from "next-themes";
 
 export type SignUpFormProps = React.HTMLAttributes<HTMLFormElement>;
 
@@ -39,6 +41,32 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
     };
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [modalPlacement, setModalPlacement] = React.useState("auto");
+
+    function handleEditorChange(value, event) {
+      console.log("here is the current model value:", value);
+    }
+
+    const { theme, themes, resolvedTheme } = useTheme();
+    const monaco = useMonaco();
+
+    useEffect(() => {
+      console.log({ theme, themes, resolvedTheme });
+    }, [theme, themes]);
+
+    useEffect(() => {
+      // or make sure that it exists by other ways
+      if (monaco) {
+        monaco.editor.defineTheme("iplastic", iplastic);
+
+        if (resolvedTheme == "dark") {
+          monaco.editor.setTheme("vs-dark");
+        } else {
+          monaco.editor.setTheme("iplastic");
+        }
+        //
+        console.log("here is the monaco instance:", monaco);
+      }
+    }, [monaco, resolvedTheme]);
 
     return (
       <>
@@ -192,11 +220,16 @@ const SignUpForm = React.forwardRef<HTMLFormElement, SignUpFormProps>(
           </Checkbox> */}
         </form>
         <Editor
-          theme="vs-dark"
-          className="rounded-lg "
           height={"40vh"}
-          defaultLanguage="javascript"
+          options={{
+            fontSize: 14,
+          }}
+          onChange={handleEditorChange}
           defaultValue="// some comment"
+          theme="vs-dark"
+          defaultLanguage="bat"
+          // className="rounded-lg "
+          className="my-custom-editor"
         />
       </>
     );
